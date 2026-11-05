@@ -1,0 +1,2 @@
+-keep class com.colortuner.** { *; }
+-keep class rikka.shizuku.** { *; }
