@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/scrollRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg"
+    android:fillViewport="true">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+            android:text="@string/app_name" android:textColor="@color/text_primary"
+            android:textSize="22sp" android:textStyle="bold" android:layout_marginBottom="4dp"/>
+        <TextView android:id="@+id/tvStatus" android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:text="Initializing..."
+            android:textColor="@color/text_muted" android:textSize="12sp"
+            android:layout_marginBottom="24dp"/>
+
+        <!-- Temperature -->
+        <androidx.cardview.widget.CardView android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:layout_marginBottom="14dp"
+            app:cardBackgroundColor="@color/surface" app:cardCornerRadius="12dp" app:cardElevation="0dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:padding="16dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="COLOR TEMPERATURE" android:textColor="@color/text_muted"
+                    android:textSize="10sp" android:letterSpacing="0.1" android:textStyle="bold"
+                    android:layout_marginBottom="12dp"/>
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="8dp">
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:text="Temperature"
+                        android:textColor="@color/text_primary" android:textSize="14sp"/>
+                    <EditText android:id="@+id/etTempValue" android:layout_width="90dp"
+                        android:layout_height="wrap_content" android:text="6500"
+                        android:textColor="@color/accent" android:textSize="14sp"
+                        android:textStyle="bold" android:gravity="end" android:inputType="number"
+                        android:background="@android:color/transparent" android:maxLength="5"
+                        android:imeOptions="actionDone"/>
+                </LinearLayout>
+                <SeekBar android:id="@+id/seekTemp" android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:max="200" android:progress="100"
+                    android:progressTint="@color/accent" android:thumbTint="@color/accent"/>
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:layout_marginTop="4dp">
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:text="1000 K (Warm)"
+                        android:textColor="@color/text_muted" android:textSize="10sp"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="6500 K ●" android:textColor="@color/text_muted" android:textSize="10sp"
+                        android:layout_marginEnd="8dp"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="10000 K (Cool)" android:textColor="@color/text_muted" android:textSize="10sp"/>
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Saturation -->
+        <androidx.cardview.widget.CardView android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:layout_marginBottom="14dp"
+            app:cardBackgroundColor="@color/surface" app:cardCornerRadius="12dp" app:cardElevation="0dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:padding="16dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="SATURATION" android:textColor="@color/text_muted"
+                    android:textSize="10sp" android:letterSpacing="0.1" android:textStyle="bold"
+                    android:layout_marginBottom="12dp"/>
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="8dp">
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:text="Saturation"
+                        android:textColor="@color/text_primary" android:textSize="14sp"/>
+                    <EditText android:id="@+id/etSatValue" android:layout_width="60dp"
+                        android:layout_height="wrap_content" android:text="100"
+                        android:textColor="@color/accent2" android:textSize="14sp"
+                        android:textStyle="bold" android:gravity="end" android:inputType="number"
+                        android:background="@android:color/transparent" android:maxLength="3"
+                        android:imeOptions="actionDone"/>
+                </LinearLayout>
+                <SeekBar android:id="@+id/seekSat" android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:max="100" android:progress="100"
+                    android:progressTint="@color/accent2" android:thumbTint="@color/accent2"/>
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:layout_marginTop="4dp">
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:text="0 (Grayscale)"
+                        android:textColor="@color/text_muted" android:textSize="10sp"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="100 (Full)" android:textColor="@color/text_muted" android:textSize="10sp"/>
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Gamma -->
+        <androidx.cardview.widget.CardView android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:layout_marginBottom="14dp"
+            app:cardBackgroundColor="@color/surface" app:cardCornerRadius="12dp" app:cardElevation="0dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:padding="16dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="GAMMA" android:textColor="@color/text_muted"
+                    android:textSize="10sp" android:letterSpacing="0.1" android:textStyle="bold"
+                    android:layout_marginBottom="12dp"/>
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="8dp">
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:text="Gamma"
+                        android:textColor="@color/text_primary" android:textSize="14sp"/>
+                    <EditText android:id="@+id/etGammaValue" android:layout_width="70dp"
+                        android:layout_height="wrap_content" android:text="1.00"
+                        android:textColor="@color/accent_gamma" android:textSize="14sp"
+                        android:textStyle="bold" android:gravity="end" android:inputType="numberDecimal"
+                        android:background="@android:color/transparent" android:maxLength="4"
+                        android:imeOptions="actionDone"/>
+                </LinearLayout>
+                <SeekBar android:id="@+id/seekGamma" android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:max="200" android:progress="100"
+                    android:progressTint="@color/accent_gamma" android:thumbTint="@color/accent_gamma"/>
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:layout_marginTop="4dp">
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:text="4.0 (Dark)"
+                        android:textColor="@color/text_muted" android:textSize="10sp"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="1.0 (Neutral) ●"
+                        android:textColor="@color/text_muted" android:textSize="10sp"
+                        android:layout_marginEnd="8dp"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="0.1 (Bright)"
+                        android:textColor="@color/text_muted" android:textSize="10sp"/>
+                </LinearLayout>
+                <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:text="2.2=sRGB (default) · 1.8=ProPhoto · 1.0=Linear (no correction)"
+                    android:textColor="@color/text_muted" android:textSize="9sp"
+                    android:layout_marginTop="2dp"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- RGB -->
+        <androidx.cardview.widget.CardView android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:layout_marginBottom="14dp"
+            app:cardBackgroundColor="@color/surface" app:cardCornerRadius="12dp" app:cardElevation="0dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:padding="16dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="RGB CORRECTION" android:textColor="@color/text_muted"
+                    android:textSize="10sp" android:letterSpacing="0.1" android:textStyle="bold"
+                    android:layout_marginBottom="12dp"/>
+                <!-- Red -->
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="6dp">
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:text="Red"
+                        android:textColor="@color/rgb_red" android:textSize="14sp"/>
+                    <EditText android:id="@+id/etRedValue" android:layout_width="55dp"
+                        android:layout_height="wrap_content" android:text="100"
+                        android:textColor="@color/rgb_red" android:textSize="14sp"
+                        android:textStyle="bold" android:gravity="end" android:inputType="number"
+                        android:background="@android:color/transparent" android:maxLength="3"
+                        android:imeOptions="actionDone"/>
+                </LinearLayout>
+                <SeekBar android:id="@+id/seekRed" android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:max="100" android:progress="100"
+                    android:progressTint="@color/rgb_red" android:thumbTint="@color/rgb_red"
+                    android:layout_marginBottom="12dp"/>
+                <!-- Green -->
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="6dp">
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:text="Green"
+                        android:textColor="@color/rgb_green" android:textSize="14sp"/>
+                    <EditText android:id="@+id/etGreenValue" android:layout_width="55dp"
+                        android:layout_height="wrap_content" android:text="100"
+                        android:textColor="@color/rgb_green" android:textSize="14sp"
+                        android:textStyle="bold" android:gravity="end" android:inputType="number"
+                        android:background="@android:color/transparent" android:maxLength="3"
+                        android:imeOptions="actionDone"/>
+                </LinearLayout>
+                <SeekBar android:id="@+id/seekGreen" android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:max="100" android:progress="100"
+                    android:progressTint="@color/rgb_green" android:thumbTint="@color/rgb_green"
+                    android:layout_marginBottom="12dp"/>
+                <!-- Blue -->
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="6dp">
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:text="Blue"
+                        android:textColor="@color/rgb_blue" android:textSize="14sp"/>
+                    <EditText android:id="@+id/etBlueValue" android:layout_width="55dp"
+                        android:layout_height="wrap_content" android:text="100"
+                        android:textColor="@color/rgb_blue" android:textSize="14sp"
+                        android:textStyle="bold" android:gravity="end" android:inputType="number"
+                        android:background="@android:color/transparent" android:maxLength="3"
+                        android:imeOptions="actionDone"/>
+                </LinearLayout>
+                <SeekBar android:id="@+id/seekBlue" android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:max="100" android:progress="100"
+                    android:progressTint="@color/rgb_blue" android:thumbTint="@color/rgb_blue"/>
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:layout_marginTop="4dp">
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:text="0 (Off)"
+                        android:textColor="@color/text_muted" android:textSize="10sp"/>
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="100 (Full)" android:textColor="@color/text_muted" android:textSize="10sp"/>
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Profiles -->
+        <androidx.cardview.widget.CardView android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:layout_marginBottom="14dp"
+            app:cardBackgroundColor="@color/surface" app:cardCornerRadius="12dp" app:cardElevation="0dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:padding="16dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="PROFILES" android:textColor="@color/text_muted"
+                    android:textSize="10sp" android:letterSpacing="0.1" android:textStyle="bold"
+                    android:layout_marginBottom="12dp"/>
+                <LinearLayout android:id="@+id/layoutProfiles" android:layout_width="match_parent"
+                    android:layout_height="wrap_content" android:orientation="vertical"/>
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:layout_marginTop="12dp" android:gravity="center_vertical">
+                    <EditText android:id="@+id/etProfileName" android:layout_width="0dp"
+                        android:layout_height="wrap_content" android:layout_weight="1"
+                        android:hint="Profile name..." android:textColor="@color/text_primary"
+                        android:textColorHint="@color/text_muted" android:backgroundTint="@color/text_muted"
+                        android:textSize="14sp" android:inputType="text" android:maxLines="1"
+                        android:imeOptions="actionDone" android:layout_marginEnd="12dp"/>
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btnSave" android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" android:text="Save"
+                        android:textSize="13sp" app:backgroundTint="@color/accent"/>
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Reset -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnReset" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:text="Reset to Defaults"
+            android:textSize="14sp" android:layout_marginBottom="10dp"
+            app:backgroundTint="@color/accent"/>
+
+        <!-- Service toggle -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnService" android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:text="▶  Start Color Service"
+            android:textSize="14sp" app:backgroundTint="@color/surface_alt"
+            app:strokeColor="@color/border" app:strokeWidth="1dp"
+            android:textColor="@color/text_primary" android:layout_marginBottom="6dp"/>
+
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="Service applies matrix via SurfaceFlinger — no polling, survives reboots"
+            android:textColor="@color/text_muted" android:textSize="11sp"
+            android:gravity="center" android:layout_marginBottom="8dp"/>
+
+    </LinearLayout>
+</ScrollView>
