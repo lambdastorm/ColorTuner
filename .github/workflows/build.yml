@@ -39,7 +39,7 @@ jobs:
 
       - name: Build debug APK
         run: |
-          ./gradlew assembleDebug --no-daemon 2>&1 | tee /tmp/build.log || true
+          ./gradlew assembleDebug -Dorg.gradle.jvmargs="-Xmx2g" --no-daemon 2>&1 | tee /tmp/build.log || true
           echo "=== ERRORS ==="
           grep -n "^e: \|error:" /tmp/build.log || echo "No e: lines found"
           echo "=== WARNINGS ==="
